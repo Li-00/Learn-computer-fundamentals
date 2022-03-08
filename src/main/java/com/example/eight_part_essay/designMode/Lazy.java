@@ -12,14 +12,19 @@ package com.example.eight_part_essay.designMode;
  */
 
 class Lazy implements Singleton{
-    private static Lazy lazy = null;
+    private static volatile Lazy lazy = null;
     private Lazy(){
     }
 
-    @Override
-    public synchronized Lazy getSingletons() {
+//    双重检查锁  保障线程安全
+
+    public Lazy getSingletons() {
         if (lazy == null) {
-            lazy = new Lazy();
+            synchronized (Lazy.class) {
+                if (lazy == null) {
+                    lazy = new Lazy();
+                }
+            }
         }
         return lazy;
     }
@@ -30,6 +35,5 @@ class Lazy implements Singleton{
     public Hungry getSingleton() {
         return null;
     }
-
 
 }

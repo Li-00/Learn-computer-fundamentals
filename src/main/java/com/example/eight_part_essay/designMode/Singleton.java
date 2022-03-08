@@ -8,8 +8,9 @@ package com.example.eight_part_essay.designMode;
  */
 
 interface Singleton {
-//    饿汉方法
+    //    饿汉方法
     Hungry getSingleton();
-//    懒汉方法
+
+    //    懒汉方法
     Lazy getSingletons();
 }
