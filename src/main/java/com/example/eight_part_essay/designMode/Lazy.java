@@ -11,14 +11,13 @@ package com.example.eight_part_essay.designMode;
  * 但是锁还在，每次还是只能拿到锁的线程进入该方法，会使线程阻塞，等待时间过长。
  */
 
-class Lazy implements Singleton{
+public class Lazy {
     private static volatile Lazy lazy = null;
     private Lazy(){
     }
 
 //    双重检查锁  保障线程安全
-
-    public Lazy getSingletons() {
+    public static Lazy getSingletons() {
         if (lazy == null) {
             synchronized (Lazy.class) {
                 if (lazy == null) {
@@ -30,10 +29,5 @@ class Lazy implements Singleton{
     }
 
 
-
-    @Override
-    public Hungry getSingleton() {
-        return null;
-    }
 
 }

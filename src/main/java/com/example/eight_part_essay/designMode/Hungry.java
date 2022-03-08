@@ -10,20 +10,14 @@ package com.example.eight_part_essay.designMode;
  * 都会操作系统的资源浪费。
  */
 
-class Hungry implements Singleton{
+public class Hungry{
     private static Hungry hungry = new Hungry();
     private Hungry(){
     }
-    @Override
-    public  Hungry getSingleton() {
+
+    public static Hungry getSingleton() {
         return hungry;
     }
 
 
-
-
-    @Override
-    public Lazy getSingletons() {
-        return null;
-    }
 }
